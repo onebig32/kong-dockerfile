@@ -1,11 +1,30 @@
-### 安装环境
-安装docker-composer
+### 安装环境要求
+
+1.安装docker
+```sh
+#centos 安装docker
+$ sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+$ sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+$ sudo yum update
+$ sudo yum install docker-ce
+
+#ubuntu 安装docker
+$ sudo apt updatesudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+$ sudo apt updatecurl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+$ sudo apt updatesudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+$ sudo apt update
+$ sudo apt install docker-ce
+```
+
+
+2.安装docker-composer
 ```sh
 $ sudo curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 $ sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-### 环境配置
+### 环境变量配置
+在kong目录下
 kong.env ---kong配置
 ```sh
 KONG_DATABASE=postgres
