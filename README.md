@@ -19,8 +19,8 @@ KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl
 
 pgadmin4.env ---pgadmin4配置
 ```sh
-PGADMIN_DEFAULT_EMAIL=admin@admin.com
-PGADMIN_DEFAULT_PASSWORD=admin
+PGADMIN_DEFAULT_EMAIL=admin@admin.com #pgadmin4账号
+PGADMIN_DEFAULT_PASSWORD=admin #pgadmin4密码
 
 ```
 
