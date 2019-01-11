@@ -1,0 +1,23 @@
+version: '2'
+services:
+  postgres:
+    image: 'postgres:9.6'
+    env_file:
+     - ./kong/postgres.env
+    ports:
+     - '5432:5432'
+    networks:
+     - "kong-net"
+  pgadmin4:
+    image: 'dpage/pgadmin4'
+    env_file:
+     - ./kong/pgadmin4.env
+    ports:
+     - "8009:80"
+    links:
+     - "postgres:kong-database"
+    networks:
+     - "kong-net"
+networks:
+  kong-net:
+    driver: bridge

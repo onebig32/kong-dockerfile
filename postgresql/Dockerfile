@@ -1,5 +1,0 @@
-FROM postgres:9.6
-ENV POSTGRES_USER kong
-ENV POSTGRES_DB kong
-RUN start
-EXPOSE 8080

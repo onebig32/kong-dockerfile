@@ -1,0 +1,26 @@
+version: '2'
+services:
+  kong:
+    image: 'kong:0.14.1'
+    build: './kong'
+    env_file:
+     - ./kong/kong.env
+    ports:
+     - "8000:8000"
+     - "8443:8443"
+     - "8001:8001"
+     - "8444:8444"
+    networks:
+     - "kong-net"
+  kong-dashbord:
+    image: 'pgbi/kong-dashboard'
+    ports:
+     - "8008:8080"
+    links:
+     - "kong"
+    networks:
+     - "kong-net"
+    command: start --kong-url http://kong:8001 --basic-auth admin=admin
+networks:
+  kong-net:
+    driver: bridge
