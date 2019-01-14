@@ -68,8 +68,8 @@ $ ./deploy.sh
 ### 访问入口
 根据docker-compose的yml文件都端口映射配置
 
-kong Dashboard:
-http://服务器IP:8008/#!/
+kong Dashboard( Kong 管理页面):
+http://本机IP:8008/#!/
 
-pgadmin4:
-http://服务器IP:8009/login?next=%2Fbrowser%2F
+pgadmin4(postgreSql管理页面):
+http://本机IP:8009/login?next=%2F
