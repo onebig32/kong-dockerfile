@@ -1,5 +1,5 @@
 ### kong 介绍
-Kong(https://github.com/Kong/kong/ )是一个云原生，高效，可扩展的分布式 API 网关。 自 2015 年在 github 开源后，广泛受到关注，目前已收获 1.68w+ 的 star，其核心价值在于高性能和可扩展性。
+Kong(https://github.com/Kong/kong/ )是一个云原生，高效，可扩展的分布式 API 网关。 自 2015 年在 github 开源后，广泛受到关注，目前已收获 1.9w+ 的 star，其核心价值在于高性能和可扩展性。
 
 这里主要讲如何用docker部署kong网关和postgreSql单点部署。
 
