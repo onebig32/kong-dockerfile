@@ -10,8 +10,8 @@ services:
      - "8443:8443"
      - "8001:8001"
      - "8444:8444"
-     links:
-     - "kong"
+    links:
+     - "kong-database"
     networks:
      - "kong-net"
   kong-dashbord:
