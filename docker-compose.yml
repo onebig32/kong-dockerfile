@@ -1,0 +1,51 @@
+version: '2'
+services:
+  kong:
+    image: 'kong:0.14.1'
+    build: './kong'
+    env_file:
+     - ./kong/kong.env
+    ports:
+     - "8000:8000"
+     - "8443:8443"
+     - "8001:8001"
+     - "8444:8444"
+     links:
+     - "kong"
+    networks:
+     - "kong-net"
+  kong-dashbord:
+    image: 'pgbi/kong-dashboard'
+    ports:
+     - "8008:8080"
+    links:
+     - "kong"
+    networks:
+     - "kong-net"
+    command: start --kong-url http://kong:8001 --basic-auth admin=admin
+  kong-database:
+    image: 'postgres:9.6'
+    env_file:
+     - ./kong/postgres.env
+    ports:
+     - '5432:5432'
+    volumes:
+     - pgdata:/var/lib/postgresql/data
+    networks:
+     - "kong-net"
+  pgadmin4:
+    image: 'dpage/pgadmin4'
+    env_file:
+     - ./kong/pgadmin4.env
+    ports:
+     - "8009:80"
+    links:
+     - "kong-database:kong-database"
+    networks:
+     - "kong-net"
+volumes:
+  pgdata:
+    external: true
+networks:
+  kong-net:
+    driver: bridge
