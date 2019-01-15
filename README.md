@@ -36,7 +36,7 @@ $ sudo pip install docker-compose
 kong.env ---kong配置
 ```sh
 KONG_DATABASE=postgres
-KONG_PG_HOST=10.0.2.15 #postgre数据库IP
+KONG_PG_HOST=kong-database #数据库ip
 KONG_PROXY_ACCESS_LOG=/dev/stdout
 KONG_ADMIN_ACCESS_LOG=/dev/stdout
 KONG_PROXY_ERROR_LOG=/dev/stderr
